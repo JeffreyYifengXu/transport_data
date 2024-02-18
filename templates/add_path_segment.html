@@ -1,0 +1,67 @@
+{% include 'top.html' %}
+<div class="content">
+    <div class="container details">
+
+        <h2 class="title"> Add Path Segment </h2>
+
+        <!-- -- Users: userid, cardid, firstname, lastname, preferredname, userroleid, password
+            CREATE TABLE Users (
+                userid serial PRIMARY KEY,  
+                firstname text, 
+                lastname text, 
+                userroleid bigint REFERENCES UserRoles(userroleid) NOT NULL, 
+                password text NOT NULL
+            );
+
+            Associated userrole information
+                - needs to be a drop down of valid userroles
+                    - display by rolename
+                    - form input by userroleid
+
+        -->
+        <form class="Add" method="POST" action="{{url_for('add_path_segment')}}">
+
+            <label for="startstationid">Start station ID:</label>
+            <input type="text" id="startstationid" name="startstationid" value="New" placeholder="Enter startstationid here">
+            
+            <label for="endstationid">End station ID:</label>
+            <input type="text" id="endstationid" name="endstationid" value="New" placeholder="Enter endstationid here">
+
+            <br/>
+            <!-- <select id="expectedtraveltimeseconds" name="expectedtraveltimeseconds">
+                {% for item in userroles %}
+                    <option value="{{item['userroleid']}}" >{{item['rolename']}} </option>
+                {% endfor %}
+            </select> -->
+            <br/>
+            <label for="expectedtraveltimeseconds">travel_time:</label>
+            <input type="number" id="traveltime" name="expectedtraveltimeseconds" value="blank" placeholder="Enter travel time in seconds here">
+
+            <label for="stopstraversed">stops_traversed:</label>
+            <input type="number" id="stopstraversed" name="stopstraversed" value="blank" placeholder="Enter stops traversed here">
+            <br/>
+            <br/>
+            <label for="triplegs">trip_legs:</label>
+            <input type="number" id="triplegs" name="triplegs" value="blank" placeholder="Enter triplegs here">
+
+            <label for="coordinatemaplen">coordinatemaplen:</label>
+            <input type="number" id="coordinatemaplen" name="coordinatemaplen" value="blank" placeholder="Enter num of diistinct locations here">
+
+            <button class="pure-button pure-button-primary" type="submit">Add</button>
+            <br/>
+            <hr/>
+            <hr/>
+            <hr/>
+            
+
+        </form>
+        <br/>
+        <div>
+ 
+        <br/>
+        <div>
+
+    </div>
+</div>
+</body>
+</html>
